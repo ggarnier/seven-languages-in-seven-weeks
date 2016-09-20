@@ -1,5 +1,5 @@
-defmodule Easy do
-  # Express some geometry objects using tuples: a two-dimensional point, a line, a circle, a polygon, and a triangle.
+# Express some geometry objects using tuples: a two-dimensional point, a line, a circle, a polygon, and a triangle.
+defmodule Geometry do
   def point({x, y}) do
     IO.puts "Point at #{x}x#{y}"
   end
@@ -24,13 +24,38 @@ defmodule Easy do
   end
 end
 
-Easy.point({5, 12})
-Easy.line({{1, 10}, {15, 8}})
-Easy.circle({{5, 5}, 10})
-Easy.polygon([{1, 2}, {1, 5}, {3, 9}, {4, 16}])
-Easy.triangle({{1, 1}, {1, 5}, {3, 3}})
+Geometry.point({5, 12})
+Geometry.line({{1, 10}, {15, 8}})
+Geometry.circle({{5, 5}, 10})
+Geometry.polygon([{1, 2}, {1, 5}, {3, 9}, {4, 16}])
+Geometry.triangle({{1, 1}, {1, 5}, {3, 3}})
 
 
 # Write a function to compute the hypotenuse of a right triangle given the length of two sides.
+defmodule RightTriangle do
+  def hypotenuse({a, b}) do
+    :math.sqrt(a*a + b*b)
+  end
+end
+
+IO.puts "Hypotenuse: #{RightTriangle.hypotenuse({10, 15})}"
+
 # Convert a string to an atom.
+defmodule StringToAtom do
+  def convert(string) do
+    String.to_atom(string)
+  end
+end
+
+IO.puts "String to atom: #{StringToAtom.convert("some string")}"
+
 # Test to see if an expression is an atom.
+defmodule TestIsAtom do
+  def check(param) do
+    Kernel.is_atom(param)
+  end
+end
+
+IO.puts "Is 'string' an atom? #{TestIsAtom.check("string")}"
+IO.puts "Is [] an atom? #{TestIsAtom.check([])}"
+IO.puts "Is :string an atom? #{TestIsAtom.check(:string)}"
