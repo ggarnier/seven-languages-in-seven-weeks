@@ -9,17 +9,15 @@ defmodule Tree do
   end
 
   def traverse({x, {y, z}}, tab) do
-    IO.puts "#{tab}#{x}"
-    traverse({y, z}, "  #{tab}")
+    "#{tab}#{x}\n" <> traverse({y, z}, "  #{tab}")
   end
 
   def traverse({x, y}, tab) do
-    IO.puts "#{tab}#{x}"
-    IO.puts "#{tab}#{y}"
+    "#{tab}#{x}\n#{tab}#{y}"
   end
 end
 
-Tree.traverse({"See Spot.", {"See Spot sit.", "See Spot run."}})
-Tree.traverse({"1", {"2", {"3", {"4", "5"}}}})
+IO.puts Tree.traverse({"See Spot.", {"See Spot sit.", "See Spot run."}})
+IO.puts Tree.traverse({"1", {"2", {"3", {"4", "5"}}}})
 
 # Given an incomplete tic-tac-toe board, compute the next player’s best move.
